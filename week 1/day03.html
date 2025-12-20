@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A semantic landing page skeleton using HTML5 and CSS.">
+    <title>Semantic Landing Page Skeleton</title>
+    <link rel="stylesheet" href="day03.css">
+</head>
+<body>
+
+    <!-- HEADER: Site-wide introduction and navigation -->
+    <header class="site-header">
+        <div class="container header-content">
+            <div class="logo">BrandLogo</div>
+
+            <nav aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact" class="btn-primary">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN: The unique content of this specific page -->
+    <main>
+        
+        <!-- SECTION: Hero / Introduction -->
+        <!-- 'aria-labelledby' connects the section to its heading for screen readers -->
+        <section id="hero" class="hero-section" aria-labelledby="hero-title">
+            <div class="container">
+                <h1 id="hero-title">Build Semantic Web Layouts</h1>
+                <p class="subtitle">A clean, accessible foundation for your next project.</p>
+                <div class="cta-group">
+                    <button type="button" class="btn-primary">Learn More</button>
+                    <button type="button" class="btn-secondary">View Demo</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Features / Main Content Grid -->
+        <section id="features" class="features-section" aria-labelledby="features-title">
+            <div class="container">
+                <h2 id="features-title">Core Features</h2>
+                
+                <div class="grid-layout">
+                    <!-- ARTICLE: Independent content (Cards) -->
+                    <article class="card">
+                        <h3>Semantic HTML</h3>
+                        <p>Uses proper tags like header, nav, and article for better SEO.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Responsive Grid</h3>
+                        <p>Built with CSS Grid to adapt to mobile and desktop screens.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Accessible</h3>
+                        <p>High contrast and logical focus order for all users.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASIDE: Content tangentially related (e.g., Quote, Ad, Sidebar) -->
+        <aside class="highlight-box">
+            <div class="container">
+                <blockquote>
+                    "Semantic structure is the bedrock of the accessible web."
+                </blockquote>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- FOOTER: Site-wide colophon -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <p>&copy; 2025 Brand Name. All rights reserved.</p>
+            </div>
+            
+            <!-- NAV: Secondary/Footer navigation -->
+            <nav aria-label="Footer Navigation">
+                <ul class="footer-links">
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+</html>
