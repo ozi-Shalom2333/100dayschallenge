@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Navigation with Skip Link</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Skip link for screen readers and keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with navigation -->
+    <header role="banner">
+        <div class="container header-container">
+            <a href="#" class="logo" aria-label="Accessible Web Design Home">
+                <i class="fas fa-universal-access"></i>
+                <span>Accessible Nav</span>
+            </a>
+            
+            <!-- Mobile menu toggle -->
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+                <i class="fas fa-bars"></i>
+            </button>
+<!--             
+            Main navigation -->
+            <nav id="main-nav" role="navigation" aria-label="Main Navigation" >
+                <ul class="nav-list" id="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link current" aria-current="page">
+                            <i class="fas fa-home" aria-hidden="true"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">
+                            <i class="fas fa-info-circle" aria-hidden="true"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="#services" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-cogs" aria-hidden="true"></i> Services
+                        </a>
+                        <div class="dropdown" role="menu">
+                            <a href="#web-design" class="dropdown-item" role="menuitem">Web Design</a>
+                            <a href="#accessibility-audit" class="dropdown-item" role="menuitem">Accessibility Audit</a>
+                            <a href="#training" class="dropdown-item" role="menuitem">Training</a>
+                            <a href="#consulting" class="dropdown-item" role="menuitem">Consulting</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#resources" class="nav-link">
+                            <i class="fas fa-book" aria-hidden="true"></i> Resources
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">
+                            <i class="fas fa-envelope" aria-hidden="true"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main content -->
+    <main id="main-content" role="main" tabindex="-1">
+        <div class="container">
+            <section id="home">
+                <h1>Accessible Navigation Demo</h1>
+                <p>This page demonstrates an accessible navigation system with proper ARIA landmarks, keyboard navigation, and a skip link for screen reader users.</p>
+                
+                <div class="accessibility-tip">
+                    <h3><i class="fas fa-lightbulb" aria-hidden="true"></i> Accessibility Tip</h3>
+                    <p>Try navigating this page using only your keyboard. Press <kbd>Tab</kbd> to move through interactive elements and <kbd>Enter</kbd> to activate them. The skip link at the top allows you to jump directly to the main content.</p>
+                </div>
+                
+                <h2>Page Landmarks</h2>
+                <p>This page includes the following ARIA landmarks for screen reader users:</p>
+                <ul>
+                    <li><strong>Banner</strong> - The header area containing the site logo and navigation</li>
+                    <li><strong>Navigation</strong> - The main navigation menu</li>
+                    <li><strong>Main</strong> - The primary content of the page</li>
+                    <li><strong>Contentinfo</strong> - The footer area</li>
+                </ul>
+                
+                <h2>Keyboard Navigation Features</h2>
+                <div class="focus-demo" tabindex="0">
+                    <p><strong>Focus demonstration:</strong> This element is focusable. Try using <kbd>Tab</kbd> to navigate to it, then press <kbd>Enter</kbd> or <kbd>Space</kbd> to simulate an action.</p>
+                </div>
+                
+                <p>Other keyboard navigation features include:</p>
+                <ul>
+                    <li>Dropdown menus that open on hover and focus</li>
+                    <li>Visible focus indicators for all interactive elements</li>
+                    <li>Skip link that appears when focused</li>
+                    <li>Mobile menu toggle with proper ARIA attributes</li>
+                </ul>
+            </section>
+            
+            <section id="about">
+                <h2>About Accessible Navigation</h2>
+                <p>Accessible navigation ensures that all users, including those with disabilities, can effectively navigate and interact with your website.</p>
+                <p>Key considerations include:</p>
+                <ul>
+                    <li>Proper semantic HTML structure</li>
+                    <li>ARIA landmarks and roles</li>
+                    <li>Keyboard navigability</li>
+                    <li>Focus management</li>
+                    <li>Screen reader compatibility</li>
+                    <li>Color contrast and visual indicators</li>
+                </ul>
+            </section>
+            
+            <section id="resources">
+                <h2>Accessibility Resources</h2>
+                <p>For more information on web accessibility, check out these resources:</p>
+                <ul>
+                    <li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener">Web Accessibility Initiative (WAI)</a></li>
+                    <li><a href="https://webaim.org/" target="_blank" rel="noopener">WebAIM (Web Accessibility In Mind)</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank" rel="noopener">MDN Web Docs Accessibility Guide</a></li>
+                    <li><a href="https://www.a11yproject.com/" target="_blank" rel="noopener">The A11Y Project</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#privacy" class="footer-link">Privacy Policy</a>
+                <a href="#accessibility" class="footer-link">Accessibility Statement</a>
+                <a href="#sitemap" class="footer-link">Sitemap</a>
+                <a href="#contact" class="footer-link">Contact Us</a>
+            </div>
+            <p>&copy; 2023 Accessible Navigation Demo. This page is for demonstration purposes.</p>
+            <p><i class="fas fa-universal-access" aria-hidden="true"></i> Built with accessibility in mind.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
