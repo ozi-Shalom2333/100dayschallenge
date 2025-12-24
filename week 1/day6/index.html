@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calendar-alt icon"></i>TechForward 2028 Conference</h1>
+            <p>Complete the form below to register for the leading technology conference of the year. All fields marked with * are required.</p>
+        </header>
+        
+        <div class="form-container">
+            <form id="conferenceForm">
+                <!-- Personal Information Fieldset -->
+                <fieldset>
+                    <legend><i class="fas fa-user icon"></i>Personal Information</legend>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="required">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <div class="error-message" id="firstNameError">Please enter your first name</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName" class="required">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <div class="error-message" id="lastNameError">Please enter your last name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="required">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="required">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required pattern="[0-9\-\+\s\(\)]{10,}">
+                        <div class="form-note">Format: 123-456-7890 or (123) 456-7890</div>
+                        <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company / Organization</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                </fieldset>
+                
+                <!-- Conference Details Fieldset -->
+                <fieldset>
+                    <legend><i class="fas fa-calendar-check icon"></i>Conference Details</legend>
+                    
+                    <div class="form-group">
+                        <label for="ticketType" class="required">Ticket Type</label>
+                        <select id="ticketType" name="ticketType" required>
+                            <option value="" disabled selected>Select a ticket type</option>
+                            <option value="full">Full Conference Pass (3 days)</option>
+                            <option value="single">Single Day Pass</option>
+                            <option value="student">Student Pass</option>
+                            <option value="virtual">Virtual Attendance</option>
+                        </select>
+                        <div class="error-message" id="ticketTypeError">Please select a ticket type</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="required">Conference Days</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="day1" name="conferenceDays" value="day1" required>
+                                <label for="day1">Day 1: Keynotes & AI Track (Oct 10)</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="day2" name="conferenceDays" value="day2">
+                                <label for="day2">Day 2: Workshops & Cloud Track (Oct 11)</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="day3" name="conferenceDays" value="day3">
+                                <label for="day3">Day 3: Networking & Future Tech (Oct 12)</label>
+                            </div>
+                        </div>
+                        <div class="error-message" id="daysError">Please select at least one conference day</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="required">Dietary Preferences</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="diet-none" name="dietary" value="none" required>
+                                <label for="diet-none">No restrictions</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="diet-vegetarian" name="dietary" value="vegetarian">
+                                <label for="diet-vegetarian">Vegetarian</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="diet-vegan" name="dietary" value="vegan">
+                                <label for="diet-vegan">Vegan</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="diet-gluten" name="dietary" value="gluten">
+                                <label for="diet-gluten">Gluten-free</label>
+                            </div>
+                        </div>
+                        <div class="error-message" id="dietaryError">Please select a dietary preference</div>
+                    </div>
+                </fieldset>
+                
+                <!-- Payment Information Fieldset -->
+                <fieldset>
+                    <legend><i class="fas fa-credit-card icon"></i>Payment Information</legend>
+                    
+                    <div class="form-group">
+                        <label for="cardName" class="required">Name on Card</label>
+                        <input type="text" id="cardName" name="cardName" required>
+                        <div class="error-message" id="cardNameError">Please enter the name on your card</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cardNumber" class="required">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" required pattern="[0-9\s]{13,19}">
+                        <div class="error-message" id="cardNumberError">Please enter a valid card number (13-19 digits)</div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiryDate" class="required">Expiry Date</label>
+                            <input type="month" id="expiryDate" name="expiryDate" required>
+                            <div class="error-message" id="expiryError">Please select a valid expiry date</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cvv" class="required">CVV</label>
+                            <input type="text" id="cvv" name="cvv" required pattern="[0-9]{3,4}">
+                            <div class="error-message" id="cvvError">Please enter a valid CVV (3-4 digits)</div>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!-- Additional Information Fieldset -->
+                <fieldset>
+                    <legend><i class="fas fa-info-circle icon"></i>Additional Information</legend>
+                    
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requests / Accessibility Needs</label>
+                        <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Please let us know if you have any special requirements..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="howHeard">How did you hear about us?</label>
+                        <select id="howHeard" name="howHeard">
+                            <option value="" selected>Select an option</option>
+                            <option value="social">Social Media</option>
+                            <option value="friend">Friend/Colleague</option>
+                            <option value="email">Email Newsletter</option>
+                            <option value="search">Online Search</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked>
+                            <label for="newsletter">Subscribe to our newsletter for updates and future events</label>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <div class="form-footer">
+                    <div class="required-note">
+                        <i class="fas fa-asterisk"></i> Indicates required field
+                    </div>
+                    <div>
+                        <button type="reset" class="reset-btn"><i class="fas fa-redo icon"></i>Reset Form</button>
+                        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane icon"></i>Register Now</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
