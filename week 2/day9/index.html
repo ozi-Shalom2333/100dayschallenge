@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Two-Column Layout with CSS Grid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-th-large"></i> Responsive Two-Column Layout</h1>
+            <p class="subtitle">Built with CSS Grid and the gap property. This layout switches from two columns on larger screens to a single column on mobile devices.</p>
+        </header>
+        
+        <div class="layout-container">
+            <div class="card">
+                <h2><i class="fas fa-code"></i> CSS Grid Implementation</h2>
+                <p>The layout is created using CSS Grid with the <strong>gap</strong> property for consistent spacing between grid items.</p>
+                <p>On screens wider than 768px, the layout displays two columns. On smaller screens, it automatically stacks into a single column.</p>
+                
+                <div class="code-container">
+                    <pre><code><span class="css-comment">/* Mobile-first: single column by default */</span>
+.layout-container {
+    <span class="css-property">display</span>: <span class="css-value">grid</span>;
+    <span class="css-property">grid-template-columns</span>: <span class="css-value">1fr</span>;
+    <span class="css-property">gap</span>: <span class="css-value">30px</span>;
+}
+
+<span class="css-comment">/* Two columns on medium screens and up */</span>
+<span class="css-comment">/* The gap property creates consistent spacing */</span>
+@media (min-width: 768px) {
+    .layout-container {
+        <span class="css-property">grid-template-columns</span>: <span class="css-value">1fr 1fr</span>;
+    }
+}</code></pre>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-grip-horizontal"></i> Gap Property Demo</h2>
+                <p>The <strong>gap</strong> property (formerly grid-gap) defines the spacing between grid items. It's a shorthand for <strong>row-gap</strong> and <strong>column-gap</strong>.</p>
+                <p>Adjust the slider below to see how different gap values affect the layout:</p>
+                
+                <div class="gap-demo" id="gapDemo">
+                    <div class="gap-item">1</div>
+                    <div class="gap-item">2</div>
+                    <div class="gap-item">3</div>
+                    <div class="gap-item">4</div>
+                    <div class="gap-item">5</div>
+                    <div class="gap-item">6</div>
+                    <div class="gap-item">7</div>
+                    <div class="gap-item">8</div>
+                </div>
+                
+                <div class="gap-controls">
+                    <div class="slider-container">
+                        <label for="gapSlider">Gap Value: <span class="gap-value" id="gapValue">10px</span></label>
+                        <input type="range" id="gapSlider" min="0" max="50" value="10">
+                    </div>
+                    <p><i class="fas fa-info-circle"></i> The gap property creates consistent spacing without needing margins on individual items.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><i class="fas fa-star"></i> Benefits of CSS Grid + Gap</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive by Design</h3>
+                    <p>Easily adapt from multi-column layouts on desktop to single column on mobile with just a few lines of CSS.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-ruler-combined"></i>
+                    <h3>Consistent Spacing</h3>
+                    <p>The gap property ensures equal spacing between all grid items, eliminating the need for complex margin calculations.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-code"></i>
+                    <h3>Cleaner Code</h3>
+                    <p>Reduces the need for extra wrappers or negative margin tricks that were required with older layout methods.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                    <h3>Flexible Sizing</h3>
+                    <p>Use fr units, percentages, or fixed values for columns. Grid handles the complex calculations for you.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Responsive Two-Column Layout with CSS Grid & Gap Property</p>
+            <div class="responsive-indicator" id="responsiveIndicator">
+                Current Layout: <span id="layoutType">Single Column (Mobile)</span>
+            </div>
+            <p style="margin-top: 15px;">Resize your browser window to see the layout change</p>
+        </footer>
+    </div>
+
+    <script>
+       
+        const gapSlider = document.getElementById('gapSlider');
+        const gapDemo = document.getElementById('gapDemo');
+        const gapValue = document.getElementById('gapValue');
+        
+        gapSlider.addEventListener('input', function() {
+            const gapSize = this.value + 'px';
+            gapDemo.style.gap = gapSize;
+            gapValue.textContent = gapSize;
+        });
+        
+     
+        function updateResponsiveIndicator() {
+            const indicator = document.getElementById('layoutType');
+            const width = window.innerWidth;
+            
+            if (width < 768) {
+                indicator.textContent = "Single Column (Mobile)";
+            } else if (width >= 768 && width < 1024) {
+                indicator.textContent = "Two Columns (Tablet)";
+            } else {
+                indicator.textContent = "Two Columns (Desktop)";
+            }
+        }
+        
+     
+        updateResponsiveIndicator();
+        window.addEventListener('resize', updateResponsiveIndicator);
+    </script>
+</body>
+</html>
