@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Header with Mobile Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="flex-header">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">DesignSystem</span>
+                        <span class="logo-sub">Professional UI</span>
+                    </div>
+                </a>
+                
+                <nav class="main-nav">
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#" class="nav-link active"><span class="nav-icon"><i class="fas fa-home"></i></span><span class="nav-text">Home</span></a></li>
+                        <li><a href="#" class="nav-link"><span class="nav-icon"><i class="fas fa-palette"></i></span><span class="nav-text">Components</span></a></li>
+                        <li><a href="#" class="nav-link"><span class="nav-icon"><i class="fas fa-layout-group"></i></span><span class="nav-text">Layouts</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">
+                                <span class="nav-icon"><i class="fas fa-cube"></i></span>
+                                <span class="nav-text">Resources</span>
+                                <span class="dropdown-arrow"><i class="fas fa-chevron-down"></i></span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item"><i class="fas fa-book"></i> Documentation</a>
+                                <a href="#" class="dropdown-item"><i class="fas fa-video"></i> Tutorials</a>
+                                <a href="#" class="dropdown-item"><i class="fas fa-code"></i> Examples</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" placeholder="Search...">
+                    </div>
+                    <div class="user-actions">
+                        <button class="btn-icon" aria-label="Notifications">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <button class="btn-icon user-avatar" aria-label="User profile">
+                            <img src="https://ui-avatars.com/api/?name=Professional+User&background=4a5bc2&color=fff" alt="User Avatar">
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="hero">
+            <h1><i class="fas fa-layer-group"></i> Professional Header Design</h1>
+            <p>A clean, intentional header with structured navigation, intuitive search, and user actions—designed for professional applications.</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary"><i class="fas fa-rocket"></i> Get Started</button>
+                <button class="btn btn-secondary"><i class="fas fa-book"></i> View Documentation</button>
+            </div>
+        </div>
+        
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-icon">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <h3>Structured Navigation</h3>
+                <p>Clear hierarchy with primary actions and dropdown menus for secondary options.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Logical grouping</li>
+                    <li><i class="fas fa-check-circle"></i> Clear visual hierarchy</li>
+                    <li><i class="fas fa-check-circle"></i> Intuitive dropdowns</li>
+                </ul>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Integrated Search</h3>
+                <p>Prominent search functionality with visual cues and intuitive placement.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Always accessible</li>
+                    <li><i class="fas fa-check-circle"></i> Visual feedback</li>
+                    <li><i class="fas fa-check-circle"></i> Quick access</li>
+                </ul>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>User Actions</h3>
+                <p>Clean user profile area with notifications and account management access.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Visual notifications</li>
+                    <li><i class="fas fa-check-circle"></i> Profile quick access</li>
+                    <li><i class="fas fa-check-circle"></i> Minimal visual clutter</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <div class="section-header">
+                <h2><i class="fas fa-code"></i> Implementation Details</h2>
+                <p>Responsive design that transforms seamlessly between desktop and mobile layouts.</p>
+            </div>
+            
+            <div class="layout-demo">
+                <div class="demo-desktop">
+                    <h4>Desktop Layout</h4>
+                    <div class="demo-visual">
+                        <div class="demo-logo">Logo + Brand</div>
+                        <div class="demo-nav">
+                            <div class="demo-nav-item">Home</div>
+                            <div class="demo-nav-item">Components</div>
+                            <div class="demo-nav-item">Layouts</div>
+                            <div class="demo-nav-item dropdown">Resources <i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="demo-actions">
+                            <div class="demo-search">Search</div>
+                            <div class="demo-user">
+                                <div class="demo-notification"><i class="fas fa-bell"></i></div>
+                                <div class="demo-avatar">User</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-mobile">
+                    <h4>Mobile Layout</h4>
+                    <div class="demo-visual">
+                        <div class="demo-logo">Logo</div>
+                        <div class="demo-hamburger">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-drafting-compass"></i>
+                <span>DesignSystem</span>
+            </div>
+            <p>Professional UI Components for Modern Web Applications</p>
+            <div class="responsive-indicator" id="responsiveIndicator">
+                Current View: <span id="viewType">Desktop</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
