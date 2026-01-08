@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Gallery with dark/light mode toggle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#galleryGrid" class="skip-link">Skip to main content</a>
+    
+    <div class="container">
+        <header class="gallery-header">
+            <h1><i class="fas fa-images"></i> Responsive Image Gallery with dark/light mode toggle</h1>
+            <p class="subtitle">Using CSS Grid with object-fit for perfect image scaling and cropping</p>
+            
+            <div class="controls">
+                <div class="view-controls">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th"></i> Grid
+                    </button>
+                    <button class="view-btn" data-view="masonry">
+                        <i class="fas fa-th-large"></i> Masonry
+                    </button>
+                    <button class="view-btn" data-view="rows">
+                        <i class="fas fa-align-left"></i> Rows
+                    </button>
+                </div>
+                
+                <div class="filter-controls">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="nature">Nature</option>
+                        <option value="urban">Urban</option>
+                        <option value="portrait">Portrait</option>
+                        <option value="abstract">Abstract</option>
+                    </select>
+                </div>
+                
+                <div class="theme-controls">
+                    <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode">
+                        <i class="fas fa-moon"></i>
+                        <span class="theme-text">Dark Mode</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <main class="gallery-container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Images will be inserted here by JavaScript -->
+            </div>
+        </main>
+        
+        <section class="object-fit-demo">
+            <div class="demo-header">
+                <h2><i class="fas fa-crop-alt"></i> Object-Fit Property Demonstration</h2>
+                <p>See how different object-fit values affect image display within a fixed container</p>
+            </div>
+            
+            <div class="fit-options">
+                <div class="fit-option">
+                    <div class="fit-preview" id="fit-contain">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Mountain landscape">
+                        <span class="fit-label">object-fit: contain</span>
+                    </div>
+                    <p class="fit-description">Scales image to fit inside container while preserving aspect ratio</p>
+                </div>
+                
+                <div class="fit-option">
+                    <div class="fit-preview" id="fit-cover">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Mountain landscape">
+                        <span class="fit-label">object-fit: cover</span>
+                    </div>
+                    <p class="fit-description">Scales image to cover container completely (may crop edges)</p>
+                </div>
+                
+                <div class="fit-option">
+                    <div class="fit-preview" id="fit-fill">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Mountain landscape">
+                        <span class="fit-label">object-fit: fill</span>
+                    </div>
+                    <p class="fit-description">Stretches image to fill container (may distort aspect ratio)</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="gallery-footer">
+            <div class="footer-content">
+                <div class="info-box">
+                    <h3><i class="fas fa-info-circle"></i> About This Gallery</h3>
+                    <p>This responsive gallery uses CSS Grid for layout and the <code>object-fit</code> property to ensure images scale and crop properly regardless of their original dimensions.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">CSS Grid</span>
+                        <span class="tech-tag">object-fit</span>
+                        <span class="tech-tag">Responsive Design</span>
+                        <span class="tech-tag">Dark Mode</span>
+                    </div>
+                </div>
+                
+                <div class="responsive-info">
+                    <div class="size-indicator" id="sizeIndicator">
+                        Current View: <span id="currentSize">Desktop</span>
+                    </div>
+                    <p>Resize your browser to see the responsive layout in action</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="lightbox-image-container">
+                <img id="lightboxImage" src="" alt="">
+                <div class="lightbox-info">
+                    <h3 id="lightboxTitle"></h3>
+                    <p id="lightboxDescription"></p>
+                    <div class="lightbox-meta">
+                        <span class="lightbox-category" id="lightboxCategory"></span>
+                        <span class="lightbox-dimensions" id="lightboxDimensions"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
