@@ -3,34 +3,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coding Challenges | Week 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+        }
+        
+     
+        @supports (font-variation-settings: normal) {
+            body { font-family: 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; }
+        }
+        
+  
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 30px;
+            position: relative;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #1e40af, #3730a3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Main Container */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+   
+        .challenge-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .challenge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+        }
+        
+        .challenge-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border-color: #c7d2fe;
+        }
+        
+        .day-indicator {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            font-weight: 700;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            color: #1e293b;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .challenge-card p {
+            color: #64748b;
+            margin-bottom: 25px;
+            flex-grow: 1;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #3b82f6, #6366f1);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 180px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+            margin-top: auto;
+        }
+        
+        .card-link:hover {
+            background: linear-gradient(to right, #2563eb, #4f46e5);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+            max-width: 190px;
+        }
+        
+        .card-link i {
+            transition: transform 0.3s ease;
+        }
+        
+        .card-link:hover i {
+            transform: translateX(4px);
+        }
+ 
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 25px;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .footer-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .footer-text i {
+            color: #8b5cf6;
+        }
+        
+      
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .challenge-card {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.9rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+        
+      
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .challenge-card {
+
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+        
+        .challenge-card:nth-child(1) { animation-delay: 0.1s; }
+        .challenge-card:nth-child(2) { animation-delay: 0.2s; }
+        .challenge-card:nth-child(3) { animation-delay: 0.3s; }
+        .challenge-card:nth-child(4) { animation-delay: 0.4s; }
+        .challenge-card:nth-child(5) { animation-delay: 0.5s; }
+        
+ 
+        .text-gradient {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Week 2 coding challenges</h1>
-    <div>
-        <h2>Day 8</h2>
-        <p>Responsive 9-Card Grid</p>
-        <a href="/week 2/day8/index.html">Day 8</a>
-    </div>
-    <div>
-        <h2>Day 9</h2>
-        <p>Responsive Two-Column Layout with CSS Grid</p>
-        <a href="/week 2/day9/index.html">Day 9</a>
-    </div>
-    <div>
-        <h2>Day 10</h2>
-        <p>Professional Header with Mobile Menu</p>
-        <a href="/week 2/day10/index.htm">Day 10</a>
-    </div>
-    <div>
-        <h2>Day 11</h2>
-        <p>Responsive Image Gallery with Object-Fit</p>
-        <a href="/week 2/day11/index.htm">Day 11</a>
-    </div>
-    <div>
-        <h2>Day 12</h2>
-        <p>Responsive Image Gallery with dark/light mode toggle</p>
-        <a href="/week 2/day12/index.htm">Day 12</a>
-    </div>
+    <header>
+        <h1>Week 2 Coding Challenges</h1>
+        <p class="subtitle">A collection of responsive design challenges focusing on modern CSS techniques and layouts.</p>
+    </header>
+    
+    <main class="container">
+        <div class="challenge-card">
+            <div class="day-indicator">08</div>
+            <h2>Responsive 9-Card Grid</h2>
+            <p>Create a responsive grid layout with nine cards that adapts to different screen sizes using CSS Grid.</p>
+            <a href="/day8/index.html" class="card-link">
+                View Challenge
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="challenge-card">
+            <div class="day-indicator">09</div>
+            <h2>Two-Column Layout with CSS Grid</h2>
+            <p>Build a responsive two-column layout using CSS Grid with proper spacing and alignment.</p>
+            <a href="/day9/index.html" class="card-link">
+                View Challenge
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="challenge-card">
+            <div class="day-indicator">10</div>
+            <h2>Professional Header with Mobile Menu</h2>
+            <p>Design a professional website header with a responsive navigation menu that transforms for mobile devices.</p>
+            <a href="/day10/index.htm" class="card-link">
+                View Challenge
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="challenge-card">
+            <div class="day-indicator">11</div>
+            <h2>Image Gallery with Object-Fit</h2>
+            <p>Create a responsive image gallery that maintains aspect ratios using the CSS object-fit property.</p>
+            <a href="/day11/index.htm" class="card-link">
+                View Challenge
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="challenge-card">
+            <div class="day-indicator">12</div>
+            <h2>React Password Generator</h2>
+            <p>Build a password generator using React and Tailwind CSS.</p>
+            <a href="https://password-generator-one-sage-78.vercel.app/" class="card-link">
+                View Challenge
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="challenge-card">
+            <div class="day-indicator">13</div>
+            <h2>Refractured React Password Generator</h2>
+            <p>Implemented changes suggested by fellow devs to the React Password Generator challenge.</p>
+            <a href="https://password-generator-dram.vercel.app/" class="card-link">
+                View Challenge
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="challenge-card">
+            <div class="day-indicator">14</div>
+            <h2>Responsive Image Gallery with dark/light mode toggle</h2>
+            <p>Build a responsive image gallery with a toggle switch for dark and light modes using CSS custom properties.</p>
+            <a href="/day12/index.html" class="card-link">
+                View Challenge
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-text">
+            <i class="fas fa-code"></i>
+            <span>Crafted with attention to detail • Week 2 Challenges</span>
+        </div>
+    </footer>
+    
+    <script>
+      
+        document.addEventListener('DOMContentLoaded', function() {
+    
+            const cards = document.querySelectorAll('.challenge-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                 
+                    if (!e.target.closest('.card-link')) {
+                        this.style.transform = 'scale(0.98)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 200);
+                    }
+                });
+            });
+            
+           
+            const yearSpan = document.createElement('span');
+            yearSpan.textContent = new Date().getFullYear();
+            const footerText = document.querySelector('.footer-text');
+            footerText.innerHTML += ` • ${yearSpan.textContent}`;
+        });
+    </script>
 </body>
 </html>
